@@ -15,7 +15,7 @@ export const ActSection: React.FC<ActSectionProps> = ({
     collectedMap,
     onToggle,
 }) => (
-    <section className="act">
+    <section className="act" id={act}>
         <h2>Act {act}</h2>
 
         {Object.entries(locations).map(([location, types]) => (
