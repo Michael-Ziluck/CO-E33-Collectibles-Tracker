@@ -4,6 +4,26 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (() => {
+        const themes = ['light', 'dark', 'purple', 'blue'];
+        const backgrounds = {
+          light: '#fff',
+          dark: '#15161a',
+          purple: '#18131f',
+          blue: '#101821',
+        };
+        const storedTheme = window.localStorage.getItem('e33-theme');
+        const theme = themes.includes(storedTheme)
+          ? storedTheme
+          : window.matchMedia('(prefers-color-scheme: dark)').matches
+            ? 'dark'
+            : 'light';
+
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.backgroundColor = backgrounds[theme];
+      })();
+    </script>
     <title>e33-collectibles-tracker</title>
   </head>
   <body>
