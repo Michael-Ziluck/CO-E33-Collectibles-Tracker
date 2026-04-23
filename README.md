@@ -5,7 +5,7 @@ A browser-based checklist for tracking journals and records in *Clair Obscur: Ex
 ## Features
 
 - Track all journal and record collectibles by act, location, and collectible type.
-- Persist progress locally using `localStorage`, with a cookie fallback.
+- Persist progress locally using `localStorage`.
 - Import `.sav` files directly in the browser to update collected items.
 - Reset progress with confirmation.
 - Collapse and expand individual location cards.
@@ -26,7 +26,7 @@ This approach avoids relying on native tooling or a save converter at runtime. I
 Collectible data lives in `src/assets/data.json`. Each item follows the `Collectible` shape defined in `src/types/collectible.ts`:
 
 ```ts
-type Collectible = {
+export interface Collectible {
   id: string;
   type: 'journal' | 'record';
   name: string;
@@ -36,7 +36,7 @@ type Collectible = {
   secondary_location: string | null;
   description: string;
   collected: boolean;
-};
+}
 ```
 
 The `collected` field is the default state from the data file. User progress is stored separately in the browser and overrides that default at runtime.

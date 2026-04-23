@@ -2,45 +2,20 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { ProgressContext } from './progress-context-value.ts';
 import type { ProgressContextValue } from './progress-context-value.ts';
 
-const COOKIE_KEY = 'collectibles_progress';
-const STORAGE_KEY = COOKIE_KEY;
+const STORAGE_KEY = 'collectibles_progress';
 
 /**
- * Writes a long-lived cookie fallback for environments where localStorage data
- * is cleared or unavailable.
- */
-const setCookie = (key: string, value: string): void => {
-    document.cookie = `${key}=${value}; path=/; max-age=31536000`;
-};
-
-/**
- * Reads persisted progress from localStorage first and then from the legacy
- * cookie fallback.
+ * Reads persisted progress from localStorage.
  */
 const getStoredProgress = (): Record<string, boolean> => {
-    if (typeof window !== 'undefined') {
-        const storedProgress = window.localStorage.getItem(STORAGE_KEY);
+    if (typeof window === 'undefined') return {};
 
-        if (storedProgress != null) {
-            try {
-                return JSON.parse(storedProgress) as Record<string, boolean>;
-            } catch {
-                return {};
-            }
-        }
-    }
+    const storedProgress = window.localStorage.getItem(STORAGE_KEY);
 
-    if (typeof document === 'undefined') return {};
-
-    const cookie = document.cookie
-        .split('; ')
-        .find((row) => row.startsWith(`${COOKIE_KEY}=`))
-        ?.split('=')[1];
-
-    if (!cookie) return {};
+    if (storedProgress == null) return {};
 
     try {
-        return JSON.parse(decodeURIComponent(cookie)) as Record<string, boolean>;
+        return JSON.parse(storedProgress) as Record<string, boolean>;
     } catch {
         return {};
     }
@@ -58,7 +33,6 @@ export const CollectiblesProgressProvider: React.FC<{
     useEffect(() => {
         const serializedProgress = JSON.stringify(collectedMap);
         window.localStorage.setItem(STORAGE_KEY, serializedProgress);
-        setCookie(COOKIE_KEY, encodeURIComponent(serializedProgress));
     }, [collectedMap]);
 
     const value = useMemo<ProgressContextValue>(() => ({
