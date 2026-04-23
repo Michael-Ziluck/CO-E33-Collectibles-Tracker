@@ -1,0 +1,832 @@
+[
+  {
+    "id": "e94772f1-3f98-4a4e-b3df-64fecc725f9b",
+    "type": "record",
+    "name": "Lumière",
+    "act": "prologue",
+    "location": "Lumière",
+    "secondary_location": null,
+    "description": "Defeat the Mime near the harbor.",
+    "collected": false
+  },
+  {
+    "id": "12dd45b5-b004-4892-9730-aaf123c48ede",
+    "type": "journal",
+    "name": "Expedition 81",
+    "act": "1",
+    "location": "Spring Meadows",
+    "secondary_location": null,
+    "description": "Automatic cutscene when meeting the Jar Nevron.",
+    "collected": false
+  },
+  {
+    "id": "376504cb-131c-44d3-a2d4-8abb8630f2c4",
+    "type": "journal",
+    "name": "Expedition 68",
+    "act": "1",
+    "location": "Flying Waters",
+    "secondary_location": null,
+    "description": "On the main path; cannot be missed.",
+    "collected": false
+  },
+  {
+    "id": "fd14b803-db2e-423f-a414-56d3dddb661f",
+    "type": "record",
+    "name": "Nocturne pour un masque de tristesse",
+    "act": "1",
+    "location": "The Manor",
+    "secondary_location": null,
+    "description": "Solve the wall fixtures puzzle in the dining room.",
+    "collected": false
+  },
+  {
+    "id": "fdb12e69-6d04-48b3-946a-3bbb2a1853c4",
+    "type": "journal",
+    "name": "Expedition 63",
+    "act": "1",
+    "location": "Ancient Sanctuary",
+    "secondary_location": null,
+    "description": "Off the brick path leading to the end.",
+    "collected": false
+  },
+  {
+    "id": "f12549ff-23e1-451b-8e52-dd7fef52539a",
+    "type": "journal",
+    "name": "Expedition 52",
+    "act": "1",
+    "location": "Gestral Village",
+    "secondary_location": null,
+    "description": "Right of the Infirmary Doctor.",
+    "collected": false
+  },
+  {
+    "id": "5410c490-52fd-418b-adb5-3f776ca7c716",
+    "type": "journal",
+    "name": "Expedition 66",
+    "act": "1",
+    "location": "Esquie's Nest",
+    "secondary_location": null,
+    "description": "After Esquie knocks down the pillar.",
+    "collected": false
+  },
+  {
+    "id": "5d1b9f70-8eae-4c34-8e2f-647e519f9907",
+    "type": "journal",
+    "name": "Expedition 78",
+    "act": "1",
+    "location": "Stone Wave Cliffs",
+    "secondary_location": null,
+    "description": "Right wall after first Rest Point.",
+    "collected": false
+  },
+  {
+    "id": "e7d305e7-78da-447c-af46-ee213c278325",
+    "type": "journal",
+    "name": "Expedition 56",
+    "act": "1",
+    "location": "Stone Wave Cliffs",
+    "secondary_location": null,
+    "description": "Left side near a statue.",
+    "collected": false
+  },
+  {
+    "id": "3075e2ca-27bd-42bd-b5be-2793211f74da",
+    "type": "journal",
+    "name": "Expedition 50",
+    "act": "1",
+    "location": "Stone Wave Cliffs",
+    "secondary_location": null,
+    "description": "Left side after Paintress Shrine.",
+    "collected": false
+  },
+  {
+    "id": "3d484dfc-55cb-4bcc-ad13-608c202b482f",
+    "type": "journal",
+    "name": "Expedition 53",
+    "act": "1",
+    "location": "The Small Bourgeon",
+    "secondary_location": null,
+    "description": "At the end of the area.",
+    "collected": false
+  },
+  {
+    "id": "9920b180-a867-49cd-a10c-6cea7206754c",
+    "type": "journal",
+    "name": "Expedition 38",
+    "act": "1",
+    "location": "Yellow Harvest",
+    "secondary_location": null,
+    "description": "Ramp near lake after Rest Point.",
+    "collected": false
+  },
+  {
+    "id": "a793a140-fc0c-4702-95ee-b938939c60bb",
+    "type": "journal",
+    "name": "Expedition 44",
+    "act": "1",
+    "location": "Yellow Harvest",
+    "secondary_location": null,
+    "description": "Near lake before Mime cave.",
+    "collected": false
+  },
+  {
+    "id": "1349cf37-fc99-42ab-93db-ccee79569256",
+    "type": "journal",
+    "name": "Expedition 59",
+    "act": "1",
+    "location": "Yellow Harvest",
+    "secondary_location": null,
+    "description": "Cave left of Yellow Spire Wrecks Rest Point.",
+    "collected": false
+  },
+  {
+    "id": "3059a272-8952-4f26-99f3-9f59d7b01634",
+    "type": "journal",
+    "name": "Expedition 62",
+    "act": "1",
+    "location": "Overworld",
+    "secondary_location": null,
+    "description": "Behind blue rocks north of Gestral Village (Esquie required).",
+    "collected": false
+  },
+  {
+    "id": "ea67fb66-3bb8-4540-a7b6-6c25c5e60110",
+    "type": "record",
+    "name": "Goblu",
+    "act": "1",
+    "location": "Overworld",
+    "secondary_location": null,
+    "description": "Bought from merchant north of The Small Bourgeon.",
+    "collected": false
+  },
+  {
+    "id": "b923d480-36fb-45aa-92cd-e71ea3a45b37",
+    "type": "record",
+    "name": "Lights of the Past",
+    "act": "1",
+    "location": "Ancient Gestral City",
+    "secondary_location": "Overworld",
+    "description": "East of Flying Waters (Esquie required).",
+    "collected": false
+  },
+  {
+    "id": "9b975468-069e-4bdf-b9e0-713e629550fd",
+    "type": "record",
+    "name": "Un 33 Decembre a Lumière",
+    "act": "1",
+    "location": "Twilight Quarry",
+    "secondary_location": "Overworld",
+    "description": "South of Esquie's Nest (Esquie required).",
+    "collected": false
+  },
+  {
+    "id": "5a8de968-35de-47a2-9955-882714ec07ca",
+    "type": "record",
+    "name": "Aline's Glasshouse",
+    "act": "1",
+    "location": "Lost Woods",
+    "secondary_location": "Overworld",
+    "description": "Past Yellow Harvest (Esquie required).",
+    "collected": false
+  },
+  {
+    "id": "e568cbbf-2b74-4981-8e45-ae3a5762f2e7",
+    "type": "record",
+    "name": "Gustave",
+    "act": "2",
+    "location": "Stone Wave Cliffs",
+    "secondary_location": null,
+    "description": "Lampmaster boss arena via rear entrance.",
+    "collected": false
+  },
+  {
+    "id": "6ed8fd74-2403-44f5-a023-af120397c272",
+    "type": "journal",
+    "name": "Expedition 41",
+    "act": "2",
+    "location": "Forgotten Battlefield",
+    "secondary_location": null,
+    "description": "Right of Rest Point in trenches.",
+    "collected": false
+  },
+  {
+    "id": "5eafecb3-afb0-439a-ac99-2bdbc2a8cc45",
+    "type": "journal",
+    "name": "Expedition 57",
+    "act": "2",
+    "location": "Forgotten Battlefield",
+    "secondary_location": null,
+    "description": "On path to Ancient Bridge.",
+    "collected": false
+  },
+  {
+    "id": "bb8dc5c8-6f6e-4647-9bc4-a581d7a67583",
+    "type": "journal",
+    "name": "Expedition 65",
+    "act": "2",
+    "location": "Monoco's Station",
+    "secondary_location": null,
+    "description": "Near East Exit past train bridge.",
+    "collected": false
+  },
+  {
+    "id": "a156aa81-a5bd-4e38-9b21-2c014af5c7b6",
+    "type": "journal",
+    "name": "Fracture Survivor",
+    "act": "2",
+    "location": "Old Lumière",
+    "secondary_location": null,
+    "description": "Use Old Key after pipe section.",
+    "collected": false
+  },
+  {
+    "id": "bb7484c0-79eb-4151-81e8-519a234c6c1c",
+    "type": "journal",
+    "name": "Expedition 58",
+    "act": "2",
+    "location": "Old Lumière",
+    "secondary_location": null,
+    "description": "Cutscene reward.",
+    "collected": false
+  },
+  {
+    "id": "19123f48-d46a-4337-b01d-ce6459b31942",
+    "type": "journal",
+    "name": "Expedition 42",
+    "act": "2",
+    "location": "Old Lumière",
+    "secondary_location": null,
+    "description": "Right of Manor entrance, down rope.",
+    "collected": false
+  },
+  {
+    "id": "f343c009-bc21-4943-b05f-83ba9128ae94",
+    "type": "record",
+    "name": "Renoir",
+    "act": "2",
+    "location": "Old Lumière",
+    "secondary_location": null,
+    "description": "Hidden room behind hedges.",
+    "collected": false
+  },
+  {
+    "id": "490ebe3a-48e8-4715-9690-3ad1e7a5365f",
+    "type": "journal",
+    "name": "Renoir",
+    "act": "2",
+    "location": "Old Lumière",
+    "secondary_location": null,
+    "description": "Same room as record.",
+    "collected": false
+  },
+  {
+    "id": "fab3377e-9aff-4569-9d98-d99efda837d6",
+    "type": "journal",
+    "name": "Expedition 69",
+    "act": "2",
+    "location": "Visages",
+    "secondary_location": null,
+    "description": "Left path (Joy).",
+    "collected": false
+  },
+  {
+    "id": "d7e63f7c-7995-4bf1-9230-901f3c0d4683",
+    "type": "journal",
+    "name": "Expedition 39",
+    "act": "2",
+    "location": "Visages",
+    "secondary_location": null,
+    "description": "Middle path (Sadness).",
+    "collected": false
+  },
+  {
+    "id": "6b7bfe49-ace8-40d6-9966-c857370ae491",
+    "type": "journal",
+    "name": "Unknown (1)",
+    "act": "2",
+    "location": "Visages",
+    "secondary_location": "The Manor",
+    "description": "Cave leads to Manor room.",
+    "collected": false
+  },
+  {
+    "id": "b22afdf7-4f1c-4379-b217-1433cf11e82b",
+    "type": "record",
+    "name": "Verso",
+    "act": "2",
+    "location": "The Manor",
+    "secondary_location": "Visages",
+    "description": "Same Manor room.",
+    "collected": false
+  },
+  {
+    "id": "c562dd56-4fcd-427c-80f7-a87bf56bfd8d",
+    "type": "journal",
+    "name": "Expedition 55",
+    "act": "2",
+    "location": "Sirene",
+    "secondary_location": null,
+    "description": "Near Dancing Classes Rest Point.",
+    "collected": false
+  },
+  {
+    "id": "e59e71bf-bc37-4d3f-a7e1-761037a60e90",
+    "type": "journal",
+    "name": "Expedition 67",
+    "act": "2",
+    "location": "Sirene",
+    "secondary_location": null,
+    "description": "Near Dancing Area Rest Point.",
+    "collected": false
+  },
+  {
+    "id": "c3a8d20f-c74a-40e3-979b-44fc363c70b4",
+    "type": "record",
+    "name": "L'Amour d'une M'ère",
+    "act": "2",
+    "location": "The Monolith",
+    "secondary_location": "The Manor",
+    "description": "Greenhouse via cave.",
+    "collected": false
+  },
+  {
+    "id": "ba887d0c-9f74-4203-abee-073992ea57a1",
+    "type": "journal",
+    "name": "Aline",
+    "act": "2",
+    "location": "The Monolith",
+    "secondary_location": "The Manor",
+    "description": "Next to record.",
+    "collected": false
+  },
+  {
+    "id": "6c95e5cb-17ca-4d75-9591-bbe3d5a79cb6",
+    "type": "journal",
+    "name": "Expedition 70",
+    "act": "2",
+    "location": "The Monolith",
+    "secondary_location": null,
+    "description": "Alley past stalls.",
+    "collected": false
+  },
+  {
+    "id": "5bf6400c-8848-4b96-8cfd-15aef6cf0ac1",
+    "type": "journal",
+    "name": "Expedition 54",
+    "act": "2",
+    "location": "Stone Wave Cliffs Cave",
+    "secondary_location": null,
+    "description": "Next to Chromatic Hexga.",
+    "collected": false
+  },
+  {
+    "id": "5f5c35bb-b60d-41e3-8a82-3cfe1491a47a",
+    "type": "journal",
+    "name": "Expedition 45",
+    "act": "2",
+    "location": "Crushing Cavern",
+    "secondary_location": null,
+    "description": "Behind Giant Sapling boss.",
+    "collected": false
+  },
+  {
+    "id": "f0f8299e-e46e-4270-8481-67fa90fdfa04",
+    "type": "journal",
+    "name": "Expedition 36",
+    "act": "2",
+    "location": "White Tree",
+    "secondary_location": null,
+    "description": "Center of area.",
+    "collected": false
+  },
+  {
+    "id": "6801021b-7f6b-41a0-aa62-41ec3245abb2",
+    "type": "record",
+    "name": "Honeymoon in Lumière",
+    "act": "2",
+    "location": "White Tree",
+    "secondary_location": null,
+    "description": "Center of area.",
+    "collected": false
+  },
+  {
+    "id": "6279af83-eadb-4683-a97f-c312a0e655b5",
+    "type": "journal",
+    "name": "Expedition 48",
+    "act": "2",
+    "location": "Stone Quarry",
+    "secondary_location": null,
+    "description": "Near Troubadour.",
+    "collected": false
+  },
+  {
+    "id": "adc589ba-f55b-46f0-ac59-1d534aee9600",
+    "type": "record",
+    "name": "Our Painted Family",
+    "act": "2",
+    "location": "The Meadows",
+    "secondary_location": null,
+    "description": "Center of area.",
+    "collected": false
+  },
+  {
+    "id": "15e88fc9-4d2a-4a49-8d8f-f68369498ef8",
+    "type": "record",
+    "name": "Révérence",
+    "act": "2",
+    "location": "Blades' Graveyard",
+    "secondary_location": null,
+    "description": "Center of area.",
+    "collected": false
+  },
+  {
+    "id": "125b1a89-ba19-44e7-be92-0d466975f5a8",
+    "type": "record",
+    "name": "Alicia's Birthday Party",
+    "act": "2",
+    "location": "Boat Graveyard",
+    "secondary_location": null,
+    "description": "Center of area.",
+    "collected": false
+  },
+  {
+    "id": "f264ffc7-225c-4880-9a83-dae2ede9c31a",
+    "type": "record",
+    "name": "Le Grand Cafe de Lumière",
+    "act": "2",
+    "location": "The Carousel",
+    "secondary_location": null,
+    "description": "Left path from main carousel.",
+    "collected": false
+  },
+  {
+    "id": "db85c6df-7da6-4a23-bd09-51dc85799d76",
+    "type": "record",
+    "name": "Alicia",
+    "act": "2",
+    "location": "Falling Leaves",
+    "secondary_location": "The Manor",
+    "description": "Behind Manor door.",
+    "collected": false
+  },
+  {
+    "id": "c6155937-acf5-4a9a-8d1d-bc00c5242b19",
+    "type": "journal",
+    "name": "Expedition 35",
+    "act": "2",
+    "location": "Falling Leaves",
+    "secondary_location": null,
+    "description": "Climb near Manor door.",
+    "collected": false
+  },
+  {
+    "id": "0643def9-28ef-4cbe-a5a0-7ed33889210d",
+    "type": "journal",
+    "name": "Expedition 49",
+    "act": "2",
+    "location": "Falling Leaves",
+    "secondary_location": null,
+    "description": "Behind Young Boy after quest.",
+    "collected": false
+  },
+  {
+    "id": "6157612e-0747-4cfd-bfb5-4c267fb1e479",
+    "type": "record",
+    "name": "Until Next Life",
+    "act": "2",
+    "location": "Falling Leaves",
+    "secondary_location": null,
+    "description": "Reward from Young Boy.",
+    "collected": false
+  },
+  {
+    "id": "d812dcbd-3a61-4f7d-8f20-dbea3ae0cea0",
+    "type": "journal",
+    "name": "Expedition 34",
+    "act": "2",
+    "location": "The Crows",
+    "secondary_location": null,
+    "description": "Only notable collectible in area.",
+    "collected": false
+  },
+  {
+    "id": "8e06ae9e-673c-41aa-a2eb-10a60411e396",
+    "type": "journal",
+    "name": "Expedition 51",
+    "act": "2",
+    "location": "Frozen Hearts",
+    "secondary_location": null,
+    "description": "Near broken trains.",
+    "collected": false
+  },
+  {
+    "id": "d8f82436-00fd-4f42-a228-8914b9149653",
+    "type": "record",
+    "name": "Clea! Don't Pull Your Sister's Hair!",
+    "act": "2",
+    "location": "Frozen Hearts",
+    "secondary_location": "The Manor",
+    "description": "Via Manor door after grapple.",
+    "collected": false
+  },
+  {
+    "id": "4ded13e9-a097-40e7-8d12-f275f82be915",
+    "type": "record",
+    "name": "Nocturne pour Lumière",
+    "act": "2",
+    "location": "Sinister Cave",
+    "secondary_location": null,
+    "description": "Hidden path above merchant.",
+    "collected": false
+  },
+  {
+    "id": "c07ba8c9-52d5-4e5e-8f15-27774b1368fb",
+    "type": "record",
+    "name": "Lost Voice",
+    "act": "2",
+    "location": "Overworld",
+    "secondary_location": null,
+    "description": "Bought from Strabami.",
+    "collected": false
+  },
+  {
+    "id": "0271527e-421c-4535-a897-1263dece1bc1",
+    "type": "journal",
+    "name": "Expedition 64",
+    "act": "2",
+    "location": "Overworld",
+    "secondary_location": null,
+    "description": "Beach east of Twilight Quarry.",
+    "collected": false
+  },
+  {
+    "id": "5a1d783e-3599-4d1f-8eae-29875c6dd190",
+    "type": "journal",
+    "name": "Expedition 47",
+    "act": "2",
+    "location": "Overworld",
+    "secondary_location": null,
+    "description": "Far west land.",
+    "collected": false
+  },
+  {
+    "id": "3eac93d1-547a-46d0-b0c1-67f84b5f70a5",
+    "type": "journal",
+    "name": "Expedition 43",
+    "act": "2",
+    "location": "Overworld",
+    "secondary_location": null,
+    "description": "East of Coastal Cave (Reef Break required).",
+    "collected": false
+  },
+  {
+    "id": "93302f39-015c-4d83-a961-d3de9d001b16",
+    "type": "journal",
+    "name": "Expedition 40",
+    "act": "2",
+    "location": "Overworld",
+    "secondary_location": null,
+    "description": "Island near Monolith barrier.",
+    "collected": false
+  },
+  {
+    "id": "f6443383-6d47-4c96-975c-0e689ceabfea",
+    "type": "record",
+    "name": "Robe de Jour",
+    "act": "2",
+    "location": "Overworld",
+    "secondary_location": null,
+    "description": "Bought on island south of Sirene.",
+    "collected": false
+  },
+  {
+    "id": "b879199d-c9e4-4d11-97f4-be2c2f3ec327",
+    "type": "record",
+    "name": "Lettre à Maelle",
+    "act": "2",
+    "location": "camp",
+    "secondary_location": null,
+    "description": "Camp interaction after first Axon.",
+    "collected": false
+  },
+  {
+    "id": "91b2c3ec-ae22-4bfc-82dd-9b4986cb044c",
+    "type": "journal",
+    "name": "Expedition 60",
+    "act": "3",
+    "location": "Lumière",
+    "secondary_location": null,
+    "description": "Near Opera House, Esquie fetch.",
+    "collected": false
+  },
+  {
+    "id": "476a93ea-23f9-45fd-97ef-6242263f2649",
+    "type": "record",
+    "name": "Lumière (2nd Chance)",
+    "act": "3",
+    "location": "Lumière",
+    "secondary_location": null,
+    "description": "Opera House.",
+    "collected": false
+  },
+  {
+    "id": "e864d4c9-4173-4994-83da-d65143f1d145",
+    "type": "record",
+    "name": "Our Drafts Collide",
+    "act": "3",
+    "location": "Lumière",
+    "secondary_location": null,
+    "description": "Automatic after game completion.",
+    "collected": false
+  },
+  {
+    "id": "0beaa7c6-e372-42cd-acc1-782e0971d963",
+    "type": "journal",
+    "name": "Expedition 84",
+    "act": "3",
+    "location": "The Fountain",
+    "secondary_location": null,
+    "description": "Past Blanche.",
+    "collected": false
+  },
+  {
+    "id": "af537316-09d8-4557-9543-5b788c300fad",
+    "type": "journal",
+    "name": "Expedition 46",
+    "act": "3",
+    "location": "Sirene's Dress",
+    "secondary_location": null,
+    "description": "After defeating Chromatic Glissando.",
+    "collected": false
+  },
+  {
+    "id": "641f89d6-16fd-40c4-a6b9-ab4612e52fb3",
+    "type": "journal",
+    "name": "Unknown (2)",
+    "act": "3",
+    "location": "The Canvas",
+    "secondary_location": "The Manor",
+    "description": "Portrait puzzle unlock.",
+    "collected": false
+  },
+  {
+    "id": "260a7f51-48e3-474c-a7ec-757b734a2fa6",
+    "type": "record",
+    "name": "Rêveries dans Paris",
+    "act": "3",
+    "location": "The Flying Casino",
+    "secondary_location": null,
+    "description": "Behind casino building.",
+    "collected": false
+  },
+  {
+    "id": "6c84d195-7e2d-4add-98ba-e213def86866",
+    "type": "record",
+    "name": "Aline",
+    "act": "3",
+    "location": "White Sands",
+    "secondary_location": null,
+    "description": "End of small area.",
+    "collected": false
+  },
+  {
+    "id": "d02c153f-9ee1-4c2e-afb9-1ef56d87f9bf",
+    "type": "journal",
+    "name": "Unknown (3)",
+    "act": "3",
+    "location": "The Reacher",
+    "secondary_location": "The Manor",
+    "description": "Manor door in lower level.",
+    "collected": false
+  },
+  {
+    "id": "90e3a755-da1d-4a75-9890-53eda95b4a94",
+    "type": "journal",
+    "name": "Expedition 61",
+    "act": "3",
+    "location": "The Reacher",
+    "secondary_location": null,
+    "description": "Main path after Foggy Area.",
+    "collected": false
+  },
+  {
+    "id": "fdd97f98-8c82-4377-bdc1-54cb37468062",
+    "type": "record",
+    "name": "Clea",
+    "act": "3",
+    "location": "Endless Tower",
+    "secondary_location": null,
+    "description": "Complete all fights.",
+    "collected": false
+  },
+  {
+    "id": "b2b1f8ff-e330-43c1-a003-9aecf8ab5257",
+    "type": "record",
+    "name": "Endless Light",
+    "act": "3",
+    "location": "Renoir's Drafts",
+    "secondary_location": null,
+    "description": "Left path, grapple to roof.",
+    "collected": false
+  },
+  {
+    "id": "5fefdba9-9175-4917-8aa5-2ae47953b996",
+    "type": "journal",
+    "name": "Simon",
+    "act": "3",
+    "location": "The Abyss",
+    "secondary_location": null,
+    "description": "Defeat Simon.",
+    "collected": false
+  },
+  {
+    "id": "b9a3df10-42d9-41fb-87da-1b370163bb00",
+    "type": "record",
+    "name": "Forlorn",
+    "act": "3",
+    "location": "Overworld",
+    "secondary_location": "The Manor",
+    "description": "Manor door in southeast map.",
+    "collected": false
+  },
+  {
+    "id": "694afe45-128b-4ca3-8df1-fb454e38ad0f",
+    "type": "record",
+    "name": "Children of Lumière",
+    "act": "3",
+    "location": "Overworld",
+    "secondary_location": null,
+    "description": "Bought near Sacred River.",
+    "collected": false
+  },
+  {
+    "id": "efbc313a-4a4a-4c5f-a5a2-77af0a317314",
+    "type": "record",
+    "name": "Linen and Cotton",
+    "act": "3",
+    "location": "Overworld",
+    "secondary_location": null,
+    "description": "Bought near Isle of the Eyes.",
+    "collected": false
+  },
+  {
+    "id": "6be64799-1087-44b8-adb0-c338984af2aa",
+    "type": "journal",
+    "name": "Expedition 37",
+    "act": "3",
+    "location": "Overworld",
+    "secondary_location": null,
+    "description": "Beach mini-game area.",
+    "collected": false
+  },
+  {
+    "id": "cd950ada-1bea-43a4-801e-6cdbbb4007b3",
+    "type": "journal",
+    "name": "Julie Search and Rescue",
+    "act": "3",
+    "location": "Overworld",
+    "secondary_location": null,
+    "description": "West of Battlefield (flying required).",
+    "collected": false
+  },
+  {
+    "id": "b6da9179-e37d-4da7-b5d0-218d2271d89b",
+    "type": "journal",
+    "name": "Verso",
+    "act": "3",
+    "location": "Overworld",
+    "secondary_location": null,
+    "description": "Near Julie journal.",
+    "collected": false
+  },
+  {
+    "id": "973995a0-af60-49a2-82a5-177d21312822",
+    "type": "record",
+    "name": "Sciel",
+    "act": "3",
+    "location": "camp",
+    "secondary_location": null,
+    "description": "Relationship level 6.",
+    "collected": false
+  },
+  {
+    "id": "fbba4983-0527-40ee-afab-01db5d2a687f",
+    "type": "record",
+    "name": "Lune",
+    "act": "3",
+    "location": "camp",
+    "secondary_location": null,
+    "description": "Relationship level 6.",
+    "collected": false
+  },
+  {
+    "id": "b06c51ee-4b00-4965-9a41-f29f0bb6e912",
+    "type": "record",
+    "name": "Monoco",
+    "act": "3",
+    "location": "camp",
+    "secondary_location": null,
+    "description": "Relationship level 6.",
+    "collected": false
+  }
+]
