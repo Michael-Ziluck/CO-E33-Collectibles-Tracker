@@ -4,6 +4,9 @@ import { CollectiblesProgressProvider } from './progress-context.tsx';
 import { SaveFileImport } from './save-file-import.tsx';
 import type { Collectible } from '../../types/collectible.ts';
 
+/**
+ * Provides stable ordering for act sections.
+ */
 const getActSortValue = (act: string): number => {
     if (act === 'prologue') return 0;
 
@@ -11,10 +14,17 @@ const getActSortValue = (act: string): number => {
     return Number.isFinite(actNumber) ? actNumber : Number.MAX_SAFE_INTEGER;
 };
 
+/**
+ * Root feature component for the collectibles checklist.
+ *
+ * It prepares the static data for rendering and delegates progress management
+ * to the provider so nested cards, rows, and import controls share the same
+ * state.
+ */
 export const CollectiblesChecklist: React.FC<{
     data: Collectible[];
 }> = ({ data }) => {
-    // Grouping: act -> location -> type
+    // Shape the flat JSON into the UI hierarchy without mutating source data.
     const grouped = useMemo(
         () =>
             data.reduce((acc, item) => {

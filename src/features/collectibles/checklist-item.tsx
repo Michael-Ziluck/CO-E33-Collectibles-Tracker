@@ -7,6 +7,10 @@ type ChecklistItemProps = {
     onToggle: (id: string) => void;
 };
 
+/**
+ * Displays optional sub-location context without forcing every collectible to
+ * carry a parenthetical placeholder.
+ */
 const SecondaryLocation: React.FC<{ item: Collectible }> = ({ item }) => {
     if (item.secondary_location == null) {
         return undefined;
@@ -20,6 +24,12 @@ const SecondaryLocation: React.FC<{ item: Collectible }> = ({ item }) => {
     )
 }
 
+/**
+ * Clickable checklist row for a single collectible.
+ *
+ * The entire row is wrapped in the label so text, whitespace, and the checkbox
+ * all toggle the same native input.
+ */
 export const ChecklistItem: React.FC<ChecklistItemProps> = ({
     item,
     checked,

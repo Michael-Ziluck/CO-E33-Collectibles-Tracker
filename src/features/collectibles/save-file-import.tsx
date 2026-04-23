@@ -7,6 +7,10 @@ type SaveFileImportProps = {
     collectibles: Collectible[];
 };
 
+/**
+ * Controls save-file import, reset confirmation, and import/reset toast
+ * feedback.
+ */
 export const SaveFileImport: React.FC<SaveFileImportProps> = ({
     collectibles,
 }) => {
@@ -50,6 +54,8 @@ export const SaveFileImport: React.FC<SaveFileImportProps> = ({
 
     const handleFiles = (files: FileList | null): void => {
         const file = files?.[0];
+        // Drag enter/leave fires for child elements. Reset the depth counter
+        // once a file is accepted so the dropzone returns to its base style.
         dragDepth.current = 0;
         setIsDraggingFile(false);
 
@@ -60,6 +66,7 @@ export const SaveFileImport: React.FC<SaveFileImportProps> = ({
 
     const handleDragEnter = (event: React.DragEvent<HTMLDivElement>): void => {
         event.preventDefault();
+        // Track nested drag events to avoid flickering the active drop state.
         dragDepth.current += 1;
         setIsDraggingFile(true);
     };
@@ -103,6 +110,7 @@ export const SaveFileImport: React.FC<SaveFileImportProps> = ({
     useEffect(() => {
         if (!isImportOpen && !isResetOpen) return;
 
+        // Keep modal dismissal consistent across import and reset dialogs.
         const handleKeyDown = (event: KeyboardEvent): void => {
             if (event.key !== 'Escape') return;
 

@@ -5,10 +5,18 @@ import type { ProgressContextValue } from './progress-context-value.ts';
 const COOKIE_KEY = 'collectibles_progress';
 const STORAGE_KEY = COOKIE_KEY;
 
+/**
+ * Writes a long-lived cookie fallback for environments where localStorage data
+ * is cleared or unavailable.
+ */
 const setCookie = (key: string, value: string): void => {
     document.cookie = `${key}=${value}; path=/; max-age=31536000`;
 };
 
+/**
+ * Reads persisted progress from localStorage first and then from the legacy
+ * cookie fallback.
+ */
 const getStoredProgress = (): Record<string, boolean> => {
     if (typeof window !== 'undefined') {
         const storedProgress = window.localStorage.getItem(STORAGE_KEY);
@@ -38,6 +46,9 @@ const getStoredProgress = (): Record<string, boolean> => {
     }
 };
 
+/**
+ * Provides persisted collectible progress to the checklist feature.
+ */
 export const CollectiblesProgressProvider: React.FC<{
     children: React.ReactNode;
 }> = ({ children }) => {

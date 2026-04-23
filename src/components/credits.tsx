@@ -1,5 +1,9 @@
 import { useCallback, useEffect, useState } from 'react';
 
+/**
+ * Footer link and modal that credits the guide, save editor, game team, and
+ * framework sources used by the project.
+ */
 export const Credits = () => {
     const [isOpen, setIsOpen] = useState(false);
 
@@ -10,6 +14,8 @@ export const Credits = () => {
     useEffect(() => {
         if (!isOpen) return;
 
+        // Match the other app modals: Escape should dismiss without requiring
+        // pointer interaction.
         const handleKeyDown = (event: KeyboardEvent): void => {
             if (event.key === 'Escape') {
                 closeModal();

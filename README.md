@@ -1,73 +1,96 @@
-# React + TypeScript + Vite
+# Expedition 33 Collectibles Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A browser-based checklist for tracking journals and records in *Clair Obscur: Expedition 33*. The tracker is designed to be lightweight, local-first, and useful during play: progress is saved in the browser, sections collapse when completed, and save files can be imported to mark discovered collectibles automatically.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Track all journal and record collectibles by act, location, and collectible type.
+- Persist progress locally using `localStorage`, with a cookie fallback.
+- Import `.sav` files directly in the browser to update collected items.
+- Reset progress with confirmation.
+- Collapse and expand individual location cards.
+- Automatically collapse a location after all items in that location are collected.
+- Highlight collapsed incomplete locations with a warning badge.
+- Switch between light, dark, and color-based themes.
+- Respect system color preference on first visit.
+- Keep all save-file processing client-side. Uploaded save files are not sent to a server.
 
-## React Compiler
+## Save Import
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The save import feature scans the uploaded `.sav` file for known inventory keys stored in `src/assets/data.json`. Each collectible has a `saveFileKey` value, and the importer checks for that key in both UTF-8 and UTF-16LE byte representations.
 
-## Expanding the ESLint configuration
+This approach avoids relying on native tooling or a save converter at runtime. It is intentionally simple: if none of the known keys are found, the app treats the file as invalid and leaves the current progress unchanged.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Data
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Collectible data lives in `src/assets/data.json`. Each item follows the `Collectible` shape defined in `src/types/collectible.ts`:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```ts
+type Collectible = {
+  id: string;
+  type: 'journal' | 'record';
+  name: string;
+  saveFileKey: string;
+  act: 'prologue' | '1' | '2' | '3';
+  location: string;
+  secondary_location: string | null;
+  description: string;
+  collected: boolean;
+};
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+The `collected` field is the default state from the data file. User progress is stored separately in the browser and overrides that default at runtime.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Project Structure
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```text
+src/
+  app/                         Application shell
+  assets/                      Static tracker data
+  components/                  Shared UI components
+  features/collectibles/       Collectibles tracker feature
+  styles/                      CSS split by concern
+  types/                       Shared TypeScript types
+  utils/                       Non-React utility code
 ```
+
+## Development
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the dev server:
+
+```bash
+npm run dev
+```
+
+Run linting:
+
+```bash
+npm run lint
+```
+
+Run the app TypeScript check:
+
+```bash
+npx tsc -p tsconfig.app.json --noEmit --pretty false
+```
+
+Build for production:
+
+```bash
+npm run build
+```
+
+## Credits
+
+- [Expedition 33 collectible guide](https://steamcommunity.com/sharedfiles/filedetails/?id=3469875590) by Llamakazi/VintyRobot for most of the collectible names, locations, and acquisition notes reflected in the tracker. See also [VintyRobot on YouTube](https://www.youtube.com/@VintyRobot) and [Llamakazi on Ko-fi](https://ko-fi.com/llamakazi).
+- [CO-E33 Save Editor](https://github.com/Infarctus/CO-E33_Save_editor) for save-file import logic inspiration and save key mapping references.
+- The *Clair Obscur: Expedition 33* and Sandfall Interactive team for the game, world, music, characters, and collectibles this project is built around.
+- React and Vite for the application foundation.
+
+This project is an unofficial fan tool and is not affiliated with Sandfall Interactive or the publisher.

@@ -8,6 +8,10 @@ type TypeGroupProps = {
     items: Collectible[];
 };
 
+/**
+ * Renders one collectible type group, such as journals or records, within a
+ * location card.
+ */
 export const TypeGroup: React.FC<TypeGroupProps> = ({
     type,
     items,

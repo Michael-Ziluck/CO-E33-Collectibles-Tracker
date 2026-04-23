@@ -8,6 +8,12 @@ type LocationSectionProps = {
     types: Record<string, Collectible[]>;
 };
 
+/**
+ * Renders a collapsible location card.
+ *
+ * Completed locations auto-collapse once, but manual expansion disables the
+ * immediate re-collapse behavior until the next reset/import cycle.
+ */
 export const LocationSection: React.FC<LocationSectionProps> = ({
     location,
     types,
@@ -27,6 +33,9 @@ export const LocationSection: React.FC<LocationSectionProps> = ({
     const isCollapsed = isResetPending ? false : collapseState.isCollapsed;
 
     useEffect(() => {
+        // Auto-collapse only on the transition from incomplete to complete.
+        // Initial completed locations are handled by the initial state, which
+        // avoids playing collapse animations on page load.
         if (isComplete && !wasComplete.current && collapseState.isAutoCollapseEnabled) {
             setCollapseState({
                 isAutoCollapseEnabled: true,
@@ -40,6 +49,8 @@ export const LocationSection: React.FC<LocationSectionProps> = ({
 
     const toggleCollapsed = () => {
         setCollapseState((current) => {
+            // A reset opens cards without synchronously writing local card state.
+            // The next manual toggle acknowledges the latest reset version.
             const currentCollapsed = resetVersion !== current.resetVersion ? false : current.isCollapsed;
             const nextCollapsed = !currentCollapsed;
 

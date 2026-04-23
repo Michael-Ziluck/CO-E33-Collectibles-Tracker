@@ -7,12 +7,18 @@ type ActSectionProps = {
     locations: Record<string, Record<string, Collectible[]>>;
 };
 
+/**
+ * Formats act headings from the compact IDs stored in the data file.
+ */
 const formatActHeading = (act: string): string => {
     if (act === 'prologue') return 'Prologue';
 
     return `Act ${act}`;
 };
 
+/**
+ * Renders one act and its grouped location cards.
+ */
 export const ActSection: React.FC<ActSectionProps> = ({
     act,
     locations,

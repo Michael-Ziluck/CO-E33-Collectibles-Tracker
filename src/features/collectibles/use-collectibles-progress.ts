@@ -2,6 +2,10 @@ import { useContext } from 'react';
 import { ProgressContext } from './progress-context-value.ts';
 import type { ProgressContextValue } from './progress-context-value.ts';
 
+/**
+ * Reads the collectibles progress context and fails fast when used outside the
+ * provider.
+ */
 export const useCollectiblesProgress = (): ProgressContextValue => {
     const context = useContext(ProgressContext);
 

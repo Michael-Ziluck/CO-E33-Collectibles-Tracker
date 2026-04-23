@@ -4,6 +4,13 @@ type SaveFileImportResult = {
     collectedMap: Record<string, boolean>;
 };
 
+/**
+ * Imports collectible progress from a user-selected Expedition 33 save file.
+ *
+ * The browser implementation intentionally avoids converting the whole save.
+ * Instead, it scans for known inventory keys that correspond to records and
+ * journals listed in the tracker data.
+ */
 export const extractCollectedMapFromSaveFile = async (
     file: File,
     collectibles: Collectible[],
@@ -23,6 +30,10 @@ export const extractCollectedMapFromSaveFile = async (
     return { collectedMap };
 };
 
+/**
+ * Builds a completion map by searching the raw save bytes for every known
+ * collectible key.
+ */
 const scanCollectedMapFromSaveBytes = (
     saveBytes: Uint8Array,
     collectibles: Collectible[],
@@ -37,8 +48,14 @@ const scanCollectedMapFromSaveBytes = (
 
 const textEncoder = new TextEncoder();
 
+/**
+ * Encodes keys as UTF-8 for save files that store inventory names directly.
+ */
 const encodeUtf8 = (value: string): Uint8Array => textEncoder.encode(value);
 
+/**
+ * Encodes keys as UTF-16LE for save files that store Unreal-style wide strings.
+ */
 const encodeUtf16Le = (value: string): Uint8Array => {
     const bytes = new Uint8Array(value.length * 2);
 
@@ -51,6 +68,10 @@ const encodeUtf16Le = (value: string): Uint8Array => {
     return bytes;
 };
 
+/**
+ * Performs a direct byte-sequence search without converting the whole save file
+ * into text.
+ */
 const containsBytes = (haystack: Uint8Array, needle: Uint8Array): boolean => {
     if (needle.length === 0 || needle.length > haystack.length) {
         return false;

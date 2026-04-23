@@ -5,6 +5,12 @@ type Theme = 'light' | 'dark' | 'red' | 'orange' | 'yellow' | 'green' | 'blue' |
 const themes: Theme[] = ['light', 'dark', 'red', 'orange', 'yellow', 'green', 'blue', 'purple', 'pink'];
 const storageKey = 'e33-theme';
 
+/**
+ * Resolves the theme used before the user explicitly chooses one.
+ *
+ * Dark-preference users start on the blue theme because it follows the same
+ * dark-family color system while being less stark than the neutral dark theme.
+ */
 const getInitialTheme = (): Theme => {
     if (typeof window === 'undefined') {
         return 'light';
@@ -18,6 +24,12 @@ const getInitialTheme = (): Theme => {
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'blue' : 'light';
 };
 
+/**
+ * Floating theme selector for desktop and tablet users.
+ *
+ * CSS hides this control on phone-sized/coarse-pointer viewports where the
+ * selector would compete with page content.
+ */
 export const ThemeToggle = () => {
     const [theme, setTheme] = useState<Theme>(getInitialTheme);
 
