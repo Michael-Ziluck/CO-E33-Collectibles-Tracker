@@ -1,0 +1,65 @@
+.credits-footer {
+  display: flex;
+  justify-content: center;
+  padding: 18px 0 4px;
+}
+
+.credits-link {
+  border: 0;
+  padding: 4px;
+  color: color-mix(in srgb, var(--text) 82%, var(--text-h));
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  font-size: 14px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.credits-link:hover,
+.credits-link:focus-visible {
+  color: var(--text-h);
+}
+
+.credits-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.48);
+}
+
+.credits-panel {
+  width: min(560px, 100%);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px;
+  background: var(--bg);
+  box-shadow: var(--shadow);
+}
+
+.credits-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.credits-header h2 {
+  margin: 0;
+}
+
+.credits-list {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding-left: 20px;
+}
+
+.credits-list a {
+  color: var(--card-header-text);
+  font-weight: 700;
+}
