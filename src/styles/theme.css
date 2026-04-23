@@ -1,0 +1,147 @@
+:root {
+  /* Light theme */
+  --light-text: #6b6375;
+  --light-text-h: #08060d;
+  --light-bg: #fff;
+  --light-border: #e5e4e7;
+  --light-code-bg: #f4f3ec;
+  --light-card-bg: rgba(244, 243, 236, 0.5);
+  --light-card-header-bg: #f2f1f4;
+  --light-card-header-text: #3f3a49;
+  --light-card-header-border: #dddbe2;
+  --light-warning: #9a5b00;
+  --light-warning-bg: #fff1c4;
+  --light-warning-border: #d08a00;
+  --light-shadow:
+    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+
+  /*
+    Dark-family theme inputs. Dark, purple, blue, and future custom colors only
+    need to set --theme-base unless they need a different background anchor.
+  */
+  --theme-base: #8a8f98;
+  --theme-bg-seed: #15161a;
+  --theme-text-seed: #f4f5f7;
+  --theme-warning-base: #d9952b;
+
+  --dark-text: color-mix(in srgb, var(--theme-base) 12%, #c9cdd4);
+  --dark-text-h: var(--theme-text-seed);
+  --dark-bg: color-mix(in srgb, var(--theme-base) 4%, var(--theme-bg-seed));
+  --dark-border: color-mix(in srgb, var(--theme-base) 30%, #272930);
+  --dark-code-bg: color-mix(in srgb, var(--theme-base) 8%, #202127);
+  --dark-card-bg: color-mix(in srgb, var(--theme-base) 14%, rgba(34, 36, 42, 0.78));
+  --dark-card-header-bg: color-mix(in srgb, var(--theme-base) 18%, #22242a);
+  --dark-card-header-text: color-mix(in srgb, var(--theme-base) 14%, var(--theme-text-seed));
+  --dark-card-header-border: color-mix(in srgb, var(--theme-base) 32%, #33363e);
+  --dark-warning: color-mix(in srgb, var(--theme-warning-base) 64%, #fff0bd);
+  --dark-warning-bg: color-mix(in srgb, var(--theme-warning-base) 34%, #2a2214);
+  --dark-warning-border: color-mix(in srgb, var(--theme-warning-base) 70%, #5b421c);
+  --dark-shadow:
+    rgba(0, 0, 0, 0.42) 0 10px 15px -3px, rgba(0, 0, 0, 0.28) 0 4px 6px -2px;
+
+  --text: var(--light-text);
+  --text-h: var(--light-text-h);
+  --bg: var(--light-bg);
+  --border: var(--light-border);
+  --code-bg: var(--light-code-bg);
+  --card-bg: var(--light-card-bg);
+  --card-header-bg: var(--light-card-header-bg);
+  --card-header-text: var(--light-card-header-text);
+  --card-header-border: var(--light-card-header-border);
+  --warning: var(--light-warning);
+  --warning-bg: var(--light-warning-bg);
+  --warning-border: var(--light-warning-border);
+  --shadow: var(--light-shadow);
+
+  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --mono: ui-monospace, Consolas, monospace;
+
+  font: 18px/145% var(--sans);
+  letter-spacing: 0.18px;
+  color-scheme: light dark;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+}
+
+[data-theme='light'] {
+  --text: var(--light-text);
+  --text-h: var(--light-text-h);
+  --bg: var(--light-bg);
+  --border: var(--light-border);
+  --code-bg: var(--light-code-bg);
+  --card-bg: var(--light-card-bg);
+  --card-header-bg: var(--light-card-header-bg);
+  --card-header-text: var(--light-card-header-text);
+  --card-header-border: var(--light-card-header-border);
+  --warning: var(--light-warning);
+  --warning-bg: var(--light-warning-bg);
+  --warning-border: var(--light-warning-border);
+  --shadow: var(--light-shadow);
+}
+
+[data-theme='dark'],
+[data-theme='purple'],
+[data-theme='blue'] {
+  --text: var(--dark-text);
+  --text-h: var(--dark-text-h);
+  --bg: var(--dark-bg);
+  --border: var(--dark-border);
+  --code-bg: var(--dark-code-bg);
+  --card-bg: var(--dark-card-bg);
+  --card-header-bg: var(--dark-card-header-bg);
+  --card-header-text: var(--dark-card-header-text);
+  --card-header-border: var(--dark-card-header-border);
+  --warning: var(--dark-warning);
+  --warning-bg: var(--dark-warning-bg);
+  --warning-border: var(--dark-warning-border);
+  --shadow: var(--dark-shadow);
+}
+
+[data-theme='dark'] {
+  --theme-base: #8a8f98;
+  --theme-bg-seed: #15161a;
+  --theme-text-seed: #f4f5f7;
+}
+
+[data-theme='purple'] {
+  --theme-base: #8b5cf6;
+  --theme-bg-seed: #15111d;
+  --theme-text-seed: #faf7ff;
+}
+
+[data-theme='blue'] {
+  --theme-base: #3b82f6;
+  --theme-bg-seed: #101821;
+  --theme-text-seed: #f3f8ff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --text: var(--dark-text);
+    --text-h: var(--dark-text-h);
+    --bg: var(--dark-bg);
+    --border: var(--dark-border);
+    --code-bg: var(--dark-code-bg);
+    --card-bg: var(--dark-card-bg);
+    --card-header-bg: var(--dark-card-header-bg);
+    --card-header-text: var(--dark-card-header-text);
+    --card-header-border: var(--dark-card-header-border);
+    --warning: var(--dark-warning);
+    --warning-bg: var(--dark-warning-bg);
+    --warning-border: var(--dark-warning-border);
+    --shadow: var(--dark-shadow);
+  }
+
+  #social .button-icon {
+    filter: invert(1) brightness(2);
+  }
+}

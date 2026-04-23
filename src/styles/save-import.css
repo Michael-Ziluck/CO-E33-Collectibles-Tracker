@@ -1,0 +1,58 @@
+.save-import {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin: 0 0 18px;
+}
+
+.save-import-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.48);
+}
+
+.save-import-panel {
+  width: min(520px, 100%);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 18px;
+  background: var(--bg);
+  box-shadow: var(--shadow);
+}
+
+.save-import-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.save-import-header h2 {
+  margin: 0;
+}
+
+.save-import-dropzone {
+  display: grid;
+  gap: 10px;
+  place-items: center;
+  margin-top: 16px;
+  padding: 28px;
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  background: var(--card-bg);
+}
+
+.save-import-success {
+  margin-top: 12px;
+  color: #2f8f46;
+}
+
+.save-import-error {
+  margin-top: 12px;
+  color: #c33d3d;
+}

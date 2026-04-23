@@ -1,27 +1,27 @@
-import { TypeGroup } from "./TypeGroup.tsx";
-import type { Collectible } from "./Collectibles.tsx";
+import { TypeGroup } from './type-group.tsx';
+import { useCollectiblesProgress } from './progress-context.tsx';
+import type { Collectible } from '../../types/collectible.ts';
 import React, { useEffect, useId, useRef, useState } from "react";
 
 type LocationSectionProps = {
     location: string;
     types: Record<string, Collectible[]>;
-    collectedMap: Record<string, boolean>;
-    onToggle: (id: string) => void;
 };
 
 export const LocationSection: React.FC<LocationSectionProps> = ({
     location,
     types,
-    collectedMap,
-    onToggle,
 }) => {
     const contentId = useId();
+    const { collectedMap, resetVersion } = useCollectiblesProgress();
     const items = Object.values(types).flat();
     const collectedCount = items.filter((item) => collectedMap[item.id] ?? item.collected).length;
     const isComplete = collectedCount === items.length;
     const [isCollapsed, setIsCollapsed] = useState(isComplete);
     const [isAutoCollapseEnabled, setIsAutoCollapseEnabled] = useState(true);
     const wasComplete = useRef(isComplete);
+    const handledResetVersion = useRef(resetVersion);
+    const isResetPending = resetVersion !== handledResetVersion.current;
 
     useEffect(() => {
         if (isComplete && !wasComplete.current && isAutoCollapseEnabled) {
@@ -30,6 +30,14 @@ export const LocationSection: React.FC<LocationSectionProps> = ({
 
         wasComplete.current = isComplete;
     }, [isAutoCollapseEnabled, isComplete]);
+
+    useEffect(() => {
+        if (!isResetPending) return;
+
+        setIsCollapsed(false);
+        setIsAutoCollapseEnabled(true);
+        handledResetVersion.current = resetVersion;
+    }, [isResetPending, resetVersion]);
 
     const toggleCollapsed = () => {
         setIsCollapsed((current) => {
@@ -55,7 +63,7 @@ export const LocationSection: React.FC<LocationSectionProps> = ({
                 >
                     <span className="location-title-group">
                         <span className="location-title">{location}</span>
-                        {isCollapsed && !isComplete && (
+                        {isCollapsed && !isComplete && !isResetPending && (
                             <span className="location-warning" aria-label="Incomplete location" title="Incomplete location">
                                 !
                             </span>
@@ -77,15 +85,15 @@ export const LocationSection: React.FC<LocationSectionProps> = ({
             </h3>
 
             <div className="location-content" id={contentId}>
-                {Object.entries(types).map(([type, items]) => (
-                    <TypeGroup
-                        key={type}
-                        type={type}
-                        items={items}
-                        collectedMap={collectedMap}
-                        onToggle={onToggle}
-                    />
-                ))}
+                <div className="location-content-inner">
+                    {Object.entries(types).map(([type, items]) => (
+                        <TypeGroup
+                            key={type}
+                            type={type}
+                            items={items}
+                        />
+                    ))}
+                </div>
             </div>
         </section>
     );

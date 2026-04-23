@@ -1,4 +1,4 @@
-import type { Collectible } from "./Collectibles.tsx";
+import type { Collectible } from '../../types/collectible.ts';
 import React from "react";
 
 type ChecklistItemProps = {
