@@ -6,18 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script>
       (() => {
-        const themes = ['light', 'dark', 'purple', 'blue'];
+        const themes = ['light', 'dark', 'red', 'orange', 'yellow', 'green', 'blue', 'purple', 'pink'];
         const backgrounds = {
           light: '#fff',
           dark: '#18191d',
-          purple: '#1d1828',
+          red: '#231719',
+          orange: '#231b14',
+          yellow: '#211e13',
+          green: '#142016',
           blue: '#152031',
+          purple: '#1d1828',
+          pink: '#231720',
         };
         const storedTheme = window.localStorage.getItem('e33-theme');
         const theme = themes.includes(storedTheme)
           ? storedTheme
           : window.matchMedia('(prefers-color-scheme: dark)').matches
-            ? 'dark'
+            ? 'blue'
             : 'light';
 
         document.documentElement.dataset.theme = theme;

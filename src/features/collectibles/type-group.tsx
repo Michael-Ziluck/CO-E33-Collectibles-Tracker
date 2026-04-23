@@ -1,5 +1,5 @@
 import { ChecklistItem } from './checklist-item.tsx';
-import { useCollectiblesProgress } from './progress-context.tsx';
+import { useCollectiblesProgress } from './use-collectibles-progress.ts';
 import type { Collectible } from '../../types/collectible.ts';
 import React from "react";
 

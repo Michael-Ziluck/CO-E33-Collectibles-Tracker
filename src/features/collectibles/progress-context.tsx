@@ -1,17 +1,9 @@
-import React, { createContext, useContext, useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
+import { ProgressContext } from './progress-context-value.ts';
+import type { ProgressContextValue } from './progress-context-value.ts';
 
 const COOKIE_KEY = 'collectibles_progress';
 const STORAGE_KEY = COOKIE_KEY;
-
-type ProgressContextValue = {
-    collectedMap: Record<string, boolean>;
-    resetVersion: number;
-    loadCollectedMap: (collectedMap: Record<string, boolean>) => void;
-    resetProgress: () => void;
-    toggleCollected: (id: string) => void;
-};
-
-const ProgressContext = createContext<ProgressContextValue | null>(null);
 
 const setCookie = (key: string, value: string): void => {
     document.cookie = `${key}=${value}; path=/; max-age=31536000`;
@@ -79,14 +71,4 @@ export const CollectiblesProgressProvider: React.FC<{
             {children}
         </ProgressContext.Provider>
     );
-};
-
-export const useCollectiblesProgress = (): ProgressContextValue => {
-    const context = useContext(ProgressContext);
-
-    if (context == null) {
-        throw new Error('useCollectiblesProgress must be used within CollectiblesProgressProvider.');
-    }
-
-    return context;
 };

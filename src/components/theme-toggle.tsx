@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 
-type Theme = 'light' | 'dark' | 'purple' | 'blue';
+type Theme = 'light' | 'dark' | 'red' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple' | 'pink';
 
-const themes: Theme[] = ['light', 'dark', 'purple', 'blue'];
+const themes: Theme[] = ['light', 'dark', 'red', 'orange', 'yellow', 'green', 'blue', 'purple', 'pink'];
 const storageKey = 'e33-theme';
 
 const getInitialTheme = (): Theme => {
@@ -15,7 +15,7 @@ const getInitialTheme = (): Theme => {
         return storedTheme as Theme;
     }
 
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'blue' : 'light';
 };
 
 export const ThemeToggle = () => {

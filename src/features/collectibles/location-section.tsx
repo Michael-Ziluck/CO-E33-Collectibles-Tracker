@@ -1,5 +1,5 @@
 import { TypeGroup } from './type-group.tsx';
-import { useCollectiblesProgress } from './progress-context.tsx';
+import { useCollectiblesProgress } from './use-collectibles-progress.ts';
 import type { Collectible } from '../../types/collectible.ts';
 import React, { useEffect, useId, useRef, useState } from "react";
 
@@ -17,37 +17,37 @@ export const LocationSection: React.FC<LocationSectionProps> = ({
     const items = Object.values(types).flat();
     const collectedCount = items.filter((item) => collectedMap[item.id] ?? item.collected).length;
     const isComplete = collectedCount === items.length;
-    const [isCollapsed, setIsCollapsed] = useState(isComplete);
-    const [isAutoCollapseEnabled, setIsAutoCollapseEnabled] = useState(true);
+    const [collapseState, setCollapseState] = useState({
+        isAutoCollapseEnabled: true,
+        isCollapsed: isComplete,
+        resetVersion,
+    });
     const wasComplete = useRef(isComplete);
-    const handledResetVersion = useRef(resetVersion);
-    const isResetPending = resetVersion !== handledResetVersion.current;
+    const isResetPending = resetVersion !== collapseState.resetVersion;
+    const isCollapsed = isResetPending ? false : collapseState.isCollapsed;
 
     useEffect(() => {
-        if (isComplete && !wasComplete.current && isAutoCollapseEnabled) {
-            setIsCollapsed(true);
+        if (isComplete && !wasComplete.current && collapseState.isAutoCollapseEnabled) {
+            setCollapseState({
+                isAutoCollapseEnabled: true,
+                isCollapsed: true,
+                resetVersion,
+            });
         }
 
         wasComplete.current = isComplete;
-    }, [isAutoCollapseEnabled, isComplete]);
-
-    useEffect(() => {
-        if (!isResetPending) return;
-
-        setIsCollapsed(false);
-        setIsAutoCollapseEnabled(true);
-        handledResetVersion.current = resetVersion;
-    }, [isResetPending, resetVersion]);
+    }, [collapseState.isAutoCollapseEnabled, isComplete, resetVersion]);
 
     const toggleCollapsed = () => {
-        setIsCollapsed((current) => {
-            const nextCollapsed = !current;
+        setCollapseState((current) => {
+            const currentCollapsed = resetVersion !== current.resetVersion ? false : current.isCollapsed;
+            const nextCollapsed = !currentCollapsed;
 
-            if (isComplete && !nextCollapsed) {
-                setIsAutoCollapseEnabled(false);
-            }
-
-            return nextCollapsed;
+            return {
+                isAutoCollapseEnabled: !(isComplete && !nextCollapsed),
+                isCollapsed: nextCollapsed,
+                resetVersion,
+            };
         });
     };
 

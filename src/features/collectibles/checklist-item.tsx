@@ -31,18 +31,19 @@ export const ChecklistItem: React.FC<ChecklistItemProps> = ({
         <li
             className={checked ? 'collected' : undefined}
         >
-            <input
-                id={inputId}
-                type="checkbox"
-                checked={checked}
-                onChange={() => onToggle(item.id)}
-            />
-
-            <label htmlFor={inputId}>
-                <span className="item-name">{item.name}</span>
-                <SecondaryLocation item={item} />
+            <label className="checklist-item-label" htmlFor={inputId}>
+                <input
+                    id={inputId}
+                    type="checkbox"
+                    checked={checked}
+                    onChange={() => onToggle(item.id)}
+                />
+                <span className="item-heading">
+                    <span className="item-name">{item.name}</span>
+                    <SecondaryLocation item={item} />
+                </span>
                 <span className="item-description">
-                    {' — '}{item.description}
+                    {item.description}
                 </span>
             </label>
         </li>

@@ -177,19 +177,32 @@
 }
 
 .checklist li {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 3px 0;
+  padding: 0;
+}
+
+.checklist-item-label {
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr);
+  align-items: start;
+  column-gap: 0.625rem;
+  grid-template-areas:
+    "checkbox heading"
+    "checkbox description";
+  padding: 5px 0;
+  cursor: pointer;
+  line-height: 1.35;
 }
 
 .checklist input {
-  margin-top: 3px;
+  grid-area: checkbox;
+  width: 16px;
+  height: 16px;
+  margin: 6px 0 0;
+  accent-color: color-mix(in srgb, var(--theme-base) 76%, var(--card-header-text));
 }
 
 .checklist label {
-  cursor: pointer;
-  line-height: 1.4;
+  min-width: 0;
 }
 
 .checklist strong {
@@ -200,7 +213,14 @@
   font-weight: 600;
 }
 
+.item-heading {
+  display: block;
+  grid-area: heading;
+}
+
 .item-description {
+  display: block;
+  grid-area: description;
   opacity: 0.8;
 }
 

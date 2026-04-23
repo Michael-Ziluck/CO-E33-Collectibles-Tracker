@@ -1,14 +1,14 @@
 :root {
   /* Light theme */
-  --light-text: #6b6375;
-  --light-text-h: #08060d;
-  --light-bg: #fff;
-  --light-border: #e5e4e7;
-  --light-code-bg: #f4f3ec;
-  --light-card-bg: rgba(244, 243, 236, 0.5);
-  --light-card-header-bg: #f2f1f4;
-  --light-card-header-text: #3f3a49;
-  --light-card-header-border: #dddbe2;
+  --light-text: #4c6178;
+  --light-text-h: #071a2f;
+  --light-bg: #f7fbff;
+  --light-border: #c9d9eb;
+  --light-code-bg: #e9f2fb;
+  --light-card-bg: rgba(232, 241, 251, 0.62);
+  --light-card-header-bg: #e4effb;
+  --light-card-header-text: #123b63;
+  --light-card-header-border: #bdd2ea;
   --light-warning: #9a5b00;
   --light-warning-bg: #fff1c4;
   --light-warning-border: #d08a00;
@@ -16,7 +16,7 @@
     rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
 
   /*
-    Dark-family theme inputs. Dark, purple, blue, and future custom colors only
+    Dark-family theme inputs. Dark, rainbow, and future custom colors only
     need to set --theme-base unless they need a different background anchor.
   */
   --theme-base: #8a8f98;
@@ -73,6 +73,7 @@
 }
 
 [data-theme='light'] {
+  color-scheme: light;
   --text: var(--light-text);
   --text-h: var(--light-text-h);
   --bg: var(--light-bg);
@@ -89,8 +90,14 @@
 }
 
 [data-theme='dark'],
+[data-theme='red'],
+[data-theme='orange'],
+[data-theme='yellow'],
+[data-theme='green'],
+[data-theme='blue'],
 [data-theme='purple'],
-[data-theme='blue'] {
+[data-theme='pink'] {
+  color-scheme: dark;
   --text: var(--dark-text);
   --text-h: var(--dark-text-h);
   --bg: var(--dark-bg);
@@ -112,16 +119,46 @@
   --theme-text-seed: #f4f5f7;
 }
 
-[data-theme='purple'] {
-  --theme-base: #8b5cf6;
-  --theme-bg-seed: #15111d;
-  --theme-text-seed: #faf7ff;
+[data-theme='red'] {
+  --theme-base: #ef4444;
+  --theme-bg-seed: #1f1113;
+  --theme-text-seed: #fff7f7;
+}
+
+[data-theme='orange'] {
+  --theme-base: #f97316;
+  --theme-bg-seed: #1f160f;
+  --theme-text-seed: #fff8f1;
+}
+
+[data-theme='yellow'] {
+  --theme-base: #eab308;
+  --theme-bg-seed: #1c180c;
+  --theme-text-seed: #fffbe8;
+}
+
+[data-theme='green'] {
+  --theme-base: #22c55e;
+  --theme-bg-seed: #0f1b14;
+  --theme-text-seed: #f1fff6;
 }
 
 [data-theme='blue'] {
   --theme-base: #3b82f6;
   --theme-bg-seed: #101821;
   --theme-text-seed: #f3f8ff;
+}
+
+[data-theme='purple'] {
+  --theme-base: #8b5cf6;
+  --theme-bg-seed: #15111d;
+  --theme-text-seed: #faf7ff;
+}
+
+[data-theme='pink'] {
+  --theme-base: #ec4899;
+  --theme-bg-seed: #1f111a;
+  --theme-text-seed: #fff5fb;
 }
 
 @media (prefers-color-scheme: dark) {

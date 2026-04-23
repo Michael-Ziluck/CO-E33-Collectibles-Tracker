@@ -1,5 +1,5 @@
-import React, { useRef, useState } from 'react';
-import { useCollectiblesProgress } from './progress-context.tsx';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { useCollectiblesProgress } from './use-collectibles-progress.ts';
 import type { Collectible } from '../../types/collectible.ts';
 import { extractCollectedMapFromSaveFile } from '../../utils/save-file-reader.ts';
 
@@ -12,25 +12,35 @@ export const SaveFileImport: React.FC<SaveFileImportProps> = ({
 }) => {
     const { loadCollectedMap, resetProgress } = useCollectiblesProgress();
     const inputRef = useRef<HTMLInputElement>(null);
-    const [isOpen, setIsOpen] = useState(false);
+    const dragDepth = useRef(0);
+    const [isImportOpen, setIsImportOpen] = useState(false);
+    const [isResetOpen, setIsResetOpen] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
-    const [message, setMessage] = useState<string | null>(null);
+    const [isDraggingFile, setIsDraggingFile] = useState(false);
+    const [toastMessage, setToastMessage] = useState<string | null>(null);
     const [error, setError] = useState<string | null>(null);
+
+    const closeImportModal = useCallback((): void => {
+        if (isLoading) return;
+
+        setIsImportOpen(false);
+    }, [isLoading]);
+
+    const closeResetModal = useCallback((): void => {
+        setIsResetOpen(false);
+    }, []);
 
     const loadFile = async (file: File): Promise<void> => {
         setIsLoading(true);
         setError(null);
-        setMessage(null);
 
         try {
-            const { collectedMap, warning } = await extractCollectedMapFromSaveFile(file, collectibles);
+            const { collectedMap } = await extractCollectedMapFromSaveFile(file, collectibles);
             const collectedCount = Object.values(collectedMap).filter(Boolean).length;
 
             loadCollectedMap(collectedMap);
-            setMessage([
-                `Successfully loaded save file. ${collectedCount}/${collectibles.length} items collected.`,
-                warning,
-            ].filter(Boolean).join(' '));
+            setToastMessage(`Successfully loaded save file. ${collectedCount}/${collectibles.length} items collected.`);
+            setIsImportOpen(false);
         } catch (loadError) {
             setError(loadError instanceof Error ? loadError.message : 'Could not load save file.');
         } finally {
@@ -40,34 +50,104 @@ export const SaveFileImport: React.FC<SaveFileImportProps> = ({
 
     const handleFiles = (files: FileList | null): void => {
         const file = files?.[0];
+        dragDepth.current = 0;
+        setIsDraggingFile(false);
 
         if (file != null) {
             void loadFile(file);
         }
     };
 
+    const handleDragEnter = (event: React.DragEvent<HTMLDivElement>): void => {
+        event.preventDefault();
+        dragDepth.current += 1;
+        setIsDraggingFile(true);
+    };
+
+    const handleDragLeave = (event: React.DragEvent<HTMLDivElement>): void => {
+        event.preventDefault();
+        dragDepth.current = Math.max(0, dragDepth.current - 1);
+
+        if (dragDepth.current === 0) {
+            setIsDraggingFile(false);
+        }
+    };
+
+    const handleDragOver = (event: React.DragEvent<HTMLDivElement>): void => {
+        event.preventDefault();
+        event.dataTransfer.dropEffect = 'copy';
+    };
+
+    const handleDrop = (event: React.DragEvent<HTMLDivElement>): void => {
+        event.preventDefault();
+        handleFiles(event.dataTransfer.files);
+    };
+
     const openModal = (): void => {
-        setMessage(null);
         setError(null);
         setIsLoading(false);
-        setIsOpen(true);
+        dragDepth.current = 0;
+        setIsDraggingFile(false);
+        if (inputRef.current != null) {
+            inputRef.current.value = '';
+        }
+        setIsImportOpen(true);
     };
+
+    const confirmResetProgress = (): void => {
+        resetProgress();
+        setIsResetOpen(false);
+        setToastMessage('Progress reset.');
+    };
+
+    useEffect(() => {
+        if (!isImportOpen && !isResetOpen) return;
+
+        const handleKeyDown = (event: KeyboardEvent): void => {
+            if (event.key !== 'Escape') return;
+
+            closeImportModal();
+            closeResetModal();
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [closeImportModal, closeResetModal, isImportOpen, isResetOpen]);
+
+    useEffect(() => {
+        if (toastMessage == null) return;
+
+        const toastTimeout = window.setTimeout(() => setToastMessage(null), 4200);
+
+        return () => window.clearTimeout(toastTimeout);
+    }, [toastMessage]);
 
     return (
         <div className="save-import">
-            <button type="button" onClick={openModal}>
+            <button className="button" type="button" onClick={openModal}>
                 Load Save File
             </button>
-            <button type="button" onClick={resetProgress}>
+            <button className="button button-secondary" type="button" onClick={() => setIsResetOpen(true)}>
                 Reset Progress
             </button>
 
-            {isOpen && (
-                <div className="save-import-modal" role="dialog" aria-modal="true" aria-label="Load save file">
+            {isImportOpen && (
+                <div
+                    className="save-import-modal"
+                    role="dialog"
+                    aria-modal="true"
+                    aria-label="Load save file"
+                    onMouseDown={(event) => {
+                        if (event.target === event.currentTarget) {
+                            closeImportModal();
+                        }
+                    }}
+                >
                     <div className="save-import-panel">
                         <div className="save-import-header">
                             <h2>Load Save File</h2>
-                            <button type="button" onClick={() => setIsOpen(false)} aria-label="Close">
+                            <button className="button button-secondary" type="button" onClick={closeImportModal} aria-label="Close">
                                 Close
                             </button>
                         </div>
@@ -75,12 +155,11 @@ export const SaveFileImport: React.FC<SaveFileImportProps> = ({
                         <p>Automatically load collected records and journals from a .sav file.</p>
 
                         <div
-                            className="save-import-dropzone"
-                            onDragOver={(event) => event.preventDefault()}
-                            onDrop={(event) => {
-                                event.preventDefault();
-                                handleFiles(event.dataTransfer.files);
-                            }}
+                            className={`save-import-dropzone${isDraggingFile ? ' save-import-dropzone-active' : ''}`}
+                            onDragEnter={handleDragEnter}
+                            onDragLeave={handleDragLeave}
+                            onDragOver={handleDragOver}
+                            onDrop={handleDrop}
                         >
                             <input
                                 ref={inputRef}
@@ -90,6 +169,7 @@ export const SaveFileImport: React.FC<SaveFileImportProps> = ({
                                 onChange={(event) => handleFiles(event.target.files)}
                             />
                             <button
+                                className="button"
                                 type="button"
                                 disabled={isLoading}
                                 onClick={() => inputRef.current?.click()}
@@ -100,9 +180,48 @@ export const SaveFileImport: React.FC<SaveFileImportProps> = ({
                         </div>
 
                         {isLoading && <p>Loading save file...</p>}
-                        {message != null && <p className="save-import-success">{message}</p>}
                         {error != null && <p className="save-import-error">{error}</p>}
                     </div>
+                </div>
+            )}
+
+            {isResetOpen && (
+                <div
+                    className="save-import-modal"
+                    role="dialog"
+                    aria-modal="true"
+                    aria-label="Reset progress"
+                    onMouseDown={(event) => {
+                        if (event.target === event.currentTarget) {
+                            closeResetModal();
+                        }
+                    }}
+                >
+                    <div className="save-import-panel save-import-panel-small">
+                        <div className="save-import-header">
+                            <h2>Reset Progress</h2>
+                            <button className="button button-secondary" type="button" onClick={closeResetModal} aria-label="Close">
+                                Close
+                            </button>
+                        </div>
+
+                        <p>This will clear all checked collectibles and expand every location.</p>
+
+                        <div className="save-import-actions">
+                            <button className="button button-secondary" type="button" onClick={closeResetModal}>
+                                Cancel
+                            </button>
+                            <button className="button button-danger" type="button" onClick={confirmResetProgress}>
+                                Reset Progress
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {toastMessage != null && (
+                <div className="toast" role="status" aria-live="polite">
+                    {toastMessage}
                 </div>
             )}
         </div>
