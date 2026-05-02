@@ -7,7 +7,7 @@
 .credits-link {
   border: 0;
   padding: 4px;
-  color: color-mix(in srgb, var(--text) 82%, var(--text-h));
+  color: var(--text-muted);
   background: transparent;
   cursor: pointer;
   font: inherit;
@@ -60,6 +60,11 @@
 }
 
 .credits-list a {
-  color: var(--card-header-text);
+  color: var(--link);
   font-weight: 700;
+}
+
+.credits-list a:hover,
+.credits-list a:focus-visible {
+  color: var(--link-hover);
 }

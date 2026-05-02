@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 
-type Theme = 'light' | 'dark' | 'red' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple' | 'pink';
+type Theme = 'light' | 'dark' | 'red' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple' | 'pink' | 'pink2';
 
-const themes: Theme[] = ['light', 'dark', 'red', 'orange', 'yellow', 'green', 'blue', 'purple', 'pink'];
+const themes: Theme[] = ['light', 'dark', 'red', 'orange', 'yellow', 'green', 'blue', 'purple', 'pink', 'pink2'];
 const storageKey = 'e33-theme';
 
 /**

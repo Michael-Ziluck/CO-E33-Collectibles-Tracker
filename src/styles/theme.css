@@ -52,6 +52,36 @@
   --warning-bg: var(--light-warning-bg);
   --warning-border: var(--light-warning-border);
   --shadow: var(--light-shadow);
+  --text-muted: color-mix(in srgb, var(--light-text) 82%, var(--light-text-h));
+  --hover-bg: color-mix(in srgb, var(--light-card-header-text) 8%, transparent);
+  --link: var(--light-card-header-text);
+  --link-hover: color-mix(in srgb, var(--light-card-header-text) 82%, #3478c7);
+  --button-border: color-mix(in srgb, var(--theme-base) 42%, var(--light-border));
+  --button-text: var(--light-card-header-text);
+  --button-bg-top: color-mix(in srgb, var(--theme-base) 24%, var(--light-card-header-bg));
+  --button-bg-bottom: color-mix(in srgb, var(--theme-base) 12%, var(--light-card-header-bg));
+  --button-hover-border: color-mix(in srgb, var(--theme-base) 58%, var(--light-border));
+  --button-hover-bg-top: color-mix(in srgb, var(--theme-base) 32%, var(--light-card-header-bg));
+  --button-hover-bg-bottom: color-mix(in srgb, var(--theme-base) 18%, var(--light-card-header-bg));
+  --button-focus: color-mix(in srgb, var(--theme-base) 72%, var(--light-text-h));
+  --button-secondary-text: var(--light-text-h);
+  --button-secondary-bg-top: color-mix(in srgb, var(--light-card-bg) 72%, var(--light-bg));
+  --button-secondary-bg-bottom: color-mix(in srgb, var(--light-card-bg) 52%, var(--light-bg));
+  --button-danger-border: color-mix(in srgb, #ef4444 58%, var(--light-border));
+  --button-danger-text: #fff7f7;
+  --button-danger-bg-top: color-mix(in srgb, #ef4444 48%, var(--light-card-header-bg));
+  --button-danger-bg-bottom: color-mix(in srgb, #b91c1c 42%, var(--light-card-header-bg));
+  --dropzone-border: color-mix(in srgb, var(--theme-base) 34%, var(--light-border));
+  --dropzone-bg-start: color-mix(in srgb, var(--theme-base) 8%, var(--light-card-bg));
+  --dropzone-bg-end: var(--light-card-bg);
+  --dropzone-outline: color-mix(in srgb, var(--theme-base) 16%, transparent);
+  --dropzone-active-border: color-mix(in srgb, var(--theme-base) 76%, var(--light-text-h));
+  --dropzone-active-bg-start: color-mix(in srgb, var(--theme-base) 24%, var(--light-card-bg));
+  --dropzone-active-bg-end: color-mix(in srgb, var(--theme-base) 10%, var(--light-bg));
+  --dropzone-active-ring: color-mix(in srgb, var(--theme-base) 18%, transparent);
+  --toast-border: color-mix(in srgb, var(--theme-base) 42%, var(--light-border));
+  --toast-bg: color-mix(in srgb, var(--light-card-header-bg) 92%, var(--light-bg));
+  --checkbox-accent: color-mix(in srgb, var(--theme-base) 76%, var(--light-card-header-text));
 
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
   --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
@@ -87,6 +117,36 @@
   --warning-bg: var(--light-warning-bg);
   --warning-border: var(--light-warning-border);
   --shadow: var(--light-shadow);
+  --text-muted: color-mix(in srgb, var(--light-text) 82%, var(--light-text-h));
+  --hover-bg: color-mix(in srgb, var(--light-card-header-text) 8%, transparent);
+  --link: var(--light-card-header-text);
+  --link-hover: color-mix(in srgb, var(--light-card-header-text) 82%, #3478c7);
+  --button-border: color-mix(in srgb, var(--theme-base) 42%, var(--light-border));
+  --button-text: var(--light-card-header-text);
+  --button-bg-top: color-mix(in srgb, var(--theme-base) 24%, var(--light-card-header-bg));
+  --button-bg-bottom: color-mix(in srgb, var(--theme-base) 12%, var(--light-card-header-bg));
+  --button-hover-border: color-mix(in srgb, var(--theme-base) 58%, var(--light-border));
+  --button-hover-bg-top: color-mix(in srgb, var(--theme-base) 32%, var(--light-card-header-bg));
+  --button-hover-bg-bottom: color-mix(in srgb, var(--theme-base) 18%, var(--light-card-header-bg));
+  --button-focus: color-mix(in srgb, var(--theme-base) 72%, var(--light-text-h));
+  --button-secondary-text: var(--light-text-h);
+  --button-secondary-bg-top: color-mix(in srgb, var(--light-card-bg) 72%, var(--light-bg));
+  --button-secondary-bg-bottom: color-mix(in srgb, var(--light-card-bg) 52%, var(--light-bg));
+  --button-danger-border: color-mix(in srgb, #ef4444 58%, var(--light-border));
+  --button-danger-text: #fff7f7;
+  --button-danger-bg-top: color-mix(in srgb, #ef4444 48%, var(--light-card-header-bg));
+  --button-danger-bg-bottom: color-mix(in srgb, #b91c1c 42%, var(--light-card-header-bg));
+  --dropzone-border: color-mix(in srgb, var(--theme-base) 34%, var(--light-border));
+  --dropzone-bg-start: color-mix(in srgb, var(--theme-base) 8%, var(--light-card-bg));
+  --dropzone-bg-end: var(--light-card-bg);
+  --dropzone-outline: color-mix(in srgb, var(--theme-base) 16%, transparent);
+  --dropzone-active-border: color-mix(in srgb, var(--theme-base) 76%, var(--light-text-h));
+  --dropzone-active-bg-start: color-mix(in srgb, var(--theme-base) 24%, var(--light-card-bg));
+  --dropzone-active-bg-end: color-mix(in srgb, var(--theme-base) 10%, var(--light-bg));
+  --dropzone-active-ring: color-mix(in srgb, var(--theme-base) 18%, transparent);
+  --toast-border: color-mix(in srgb, var(--theme-base) 42%, var(--light-border));
+  --toast-bg: color-mix(in srgb, var(--light-card-header-bg) 92%, var(--light-bg));
+  --checkbox-accent: color-mix(in srgb, var(--theme-base) 76%, var(--light-card-header-text));
 }
 
 [data-theme='dark'],
@@ -96,7 +156,8 @@
 [data-theme='green'],
 [data-theme='blue'],
 [data-theme='purple'],
-[data-theme='pink'] {
+[data-theme='pink'],
+[data-theme='pink2'] {
   color-scheme: dark;
   --text: var(--dark-text);
   --text-h: var(--dark-text-h);
@@ -111,6 +172,36 @@
   --warning-bg: var(--dark-warning-bg);
   --warning-border: var(--dark-warning-border);
   --shadow: var(--dark-shadow);
+  --text-muted: color-mix(in srgb, var(--dark-text) 82%, var(--dark-text-h));
+  --hover-bg: color-mix(in srgb, var(--dark-card-header-text) 8%, transparent);
+  --link: var(--dark-card-header-text);
+  --link-hover: color-mix(in srgb, var(--dark-card-header-text) 82%, var(--theme-text-seed));
+  --button-border: color-mix(in srgb, var(--theme-base) 42%, var(--dark-border));
+  --button-text: var(--dark-card-header-text);
+  --button-bg-top: color-mix(in srgb, var(--theme-base) 24%, var(--dark-card-header-bg));
+  --button-bg-bottom: color-mix(in srgb, var(--theme-base) 12%, var(--dark-card-header-bg));
+  --button-hover-border: color-mix(in srgb, var(--theme-base) 58%, var(--dark-border));
+  --button-hover-bg-top: color-mix(in srgb, var(--theme-base) 32%, var(--dark-card-header-bg));
+  --button-hover-bg-bottom: color-mix(in srgb, var(--theme-base) 18%, var(--dark-card-header-bg));
+  --button-focus: color-mix(in srgb, var(--theme-base) 72%, var(--dark-text-h));
+  --button-secondary-text: var(--dark-text-h);
+  --button-secondary-bg-top: color-mix(in srgb, var(--dark-card-bg) 72%, var(--dark-bg));
+  --button-secondary-bg-bottom: color-mix(in srgb, var(--dark-card-bg) 52%, var(--dark-bg));
+  --button-danger-border: color-mix(in srgb, #ef4444 58%, var(--dark-border));
+  --button-danger-text: #fff7f7;
+  --button-danger-bg-top: color-mix(in srgb, #ef4444 48%, var(--dark-card-header-bg));
+  --button-danger-bg-bottom: color-mix(in srgb, #b91c1c 42%, var(--dark-card-header-bg));
+  --dropzone-border: color-mix(in srgb, var(--theme-base) 34%, var(--dark-border));
+  --dropzone-bg-start: color-mix(in srgb, var(--theme-base) 8%, var(--dark-card-bg));
+  --dropzone-bg-end: var(--dark-card-bg);
+  --dropzone-outline: color-mix(in srgb, var(--theme-base) 16%, transparent);
+  --dropzone-active-border: color-mix(in srgb, var(--theme-base) 76%, var(--dark-text-h));
+  --dropzone-active-bg-start: color-mix(in srgb, var(--theme-base) 24%, var(--dark-card-bg));
+  --dropzone-active-bg-end: color-mix(in srgb, var(--theme-base) 10%, var(--dark-bg));
+  --dropzone-active-ring: color-mix(in srgb, var(--theme-base) 18%, transparent);
+  --toast-border: color-mix(in srgb, var(--theme-base) 42%, var(--dark-border));
+  --toast-bg: color-mix(in srgb, var(--dark-card-header-bg) 92%, var(--dark-bg));
+  --checkbox-accent: color-mix(in srgb, var(--theme-base) 76%, var(--dark-card-header-text));
 }
 
 [data-theme='dark'] {
@@ -156,9 +247,58 @@
 }
 
 [data-theme='pink'] {
-  --theme-base: #ec4899;
-  --theme-bg-seed: #1f111a;
-  --theme-text-seed: #fff5fb;
+  --theme-base: #ff0266;
+  --theme-bg-seed: #221319;
+  --theme-text-seed: #fff2f7;
+}
+
+[data-theme='pink2'] {
+  --theme-base: #ff3377;
+  --theme-bg-seed: #160a10;
+  --theme-text-seed: #fce8f0;
+  --text: #fce8f0;
+  --text-h: #fff4f8;
+  --bg: #160a10;
+  --border: #5c2741;
+  --code-bg: #26111b;
+  --card-bg: #26111b;
+  --card-header-bg: #3d1b2b;
+  --card-header-text: #ff3377;
+  --card-header-border: #5c2741;
+  --warning: #ff3377;
+  --warning-bg: #4a1c31;
+  --warning-border: #6b2d47;
+  --shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  --text-muted: #c98ba6;
+  --hover-bg: #3d1b2b;
+  --link: #ff3377;
+  --link-hover: #e60050;
+  --button-border: #ff3377;
+  --button-text: #fce8f0;
+  --button-bg-top: #3d1b2b;
+  --button-bg-bottom: #26111b;
+  --button-hover-border: #ff3377;
+  --button-hover-bg-top: #ff3377;
+  --button-hover-bg-bottom: #e60050;
+  --button-focus: #ff3377;
+  --button-secondary-text: #fce8f0;
+  --button-secondary-bg-top: #321621;
+  --button-secondary-bg-bottom: #26111b;
+  --button-danger-border: #ff3377;
+  --button-danger-text: #ffffff;
+  --button-danger-bg-top: #ff3377;
+  --button-danger-bg-bottom: #e60050;
+  --dropzone-border: #5c2741;
+  --dropzone-bg-start: #26111b;
+  --dropzone-bg-end: #26111b;
+  --dropzone-outline: rgba(255, 51, 119, 0.22);
+  --dropzone-active-border: #ff3377;
+  --dropzone-active-bg-start: #3d1b2b;
+  --dropzone-active-bg-end: #26111b;
+  --dropzone-active-ring: rgba(255, 51, 119, 0.24);
+  --toast-border: #5c2741;
+  --toast-bg: #26111b;
+  --checkbox-accent: #ff3377;
 }
 
 @media (prefers-color-scheme: dark) {
