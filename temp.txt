@@ -1,0 +1,57 @@
+import io.cucumber.gherkin.GherkinParser;
+import io.cucumber.messages.types.Envelope;
+import io.cucumber.messages.types.Examples;
+import io.cucumber.messages.types.Feature;
+import io.cucumber.messages.types.GherkinDocument;
+import io.cucumber.messages.types.Scenario;
+import io.cucumber.messages.types.TableCell;
+import io.cucumber.messages.types.TableRow;
+
+import java.nio.file.Path;
+import java.util.List;
+import java.util.Optional;
+
+public final class CucumberExampleScanner {
+  public void scan(Path featurePath) {
+    GherkinParser parser = GherkinParser.builder()
+        .includeGherkinDocument(true)
+        .includePickles(false)
+        .includeSource(false)
+        .build();
+
+    parser.parse(featurePath)
+        .map(Envelope::getGherkinDocument)
+        .flatMap(Optional::stream)
+        .map(GherkinDocument::getFeature)
+        .flatMap(Optional::stream)
+        .forEach(this::scanFeature);
+  }
+
+  private void scanFeature(Feature feature) {
+    feature.getChildren().forEach(child ->
+        child.getScenario().ifPresent(this::scanScenario)
+    );
+  }
+
+  private void scanScenario(Scenario scenario) {
+    for (Examples examples : scenario.getExamples()) {
+      List<TableRow> rows = examples.getTableBody();
+
+      List<String> headers = examples.getTableHeader()
+          .map(TableRow::getCells)
+          .orElse(List.of())
+          .stream()
+          .map(TableCell::getValue)
+          .toList();
+
+      for (TableRow row : rows) {
+        List<String> values = row.getCells().stream()
+            .map(TableCell::getValue)
+            .toList();
+
+        // Do whatever validation/scanning you need here.
+        System.out.println(headers + " -> " + values);
+      }
+    }
+  }
+}
